@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-icons@latest/dist/lucide.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #2c4957;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .profile-img {
+            width: 250px;
+            height: 250px;
+            background-image: url("assets/profile.jpg");
+            background-size: cover;
+            background-position: center;
+            border-radius: 50%;
+            margin: 2rem auto;
+        }
+
+        .title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: #2c4957;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #2c4957;
+            margin-bottom: 2rem;
+        }
+
+        .about {
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .about-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #2c4957;
+        }
+
+        .about-content {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .section {
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: #2c4957;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        .grid-item {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .icon-placeholder {
+             width: 80px;
+             height: 80px;
+             background-color: #2c4957;
+             border-radius: 50%;
+             margin: 0 auto 1rem;
+             position: relative;
+        }
+
+        .icon {
+             position: absolute;
+             top: 50%;
+             left: 50%;
+             transform: translate(-50%, -50%);
+             width: 40px;
+             height: 40px;
+             fill: #f2f2f2; /* Set the color of the SVG icon */
+        }
+
+        .icon-item {
+             display: flex;
+             flex-direction: column;
+             align-items: center;
+                gap: 1rem;
+        }
+
+        .icon-item i {
+                width: 48px;
+              height: 48px;
+             color: #2c4957;
+}
+
+        .item-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .item-subtitle {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .phone-number {
+      font-size: 1rem;
+      cursor: pointer;
+      color: #ffffff;
+    }
+
+    .email-address {
+      font-size: 1rem;
+      color: #ffffff;
+      text-decoration: underline;
+      cursor: pointer;
+      }
+
+       .linkedin-link {
+      font-size: 1rem;
+      color: #ffffff;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+        .hire-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: #2c4957;
+            color: white;
+            text-decoration: none;
+            border-radius: 7px;
+            margin-top: 3rem;
+            transition: background-color 0.3s;
+        }
+
+        .hire-button:hover {
+            background-color: #1a2f37;
+        }
+
+        .contact {
+            background-color: #2c4957;
+            color: white;
+            padding: 4rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .contact-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            max-width: 800px;
+        }
+
+        .contact-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #fff;
+        }
+
+        .social-links {
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-right: 1rem;
+        }
+
+        .social-links img {
+            width: 30px;
+            height: 30px;
+            margin-right: 0.5rem;
+        }
+
+        .contact-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .contact-icon {
+      width: 24px;
+      height: 24px;
+      margin-right: 0.5rem;
+    }
+
+    .contact-name {
+      font-weight: bold;
+    }
+
+    .contact-info {
+      color: #ffffff;
+    }
+
+        .divider {
+            width: 100%;
+            height: 1px;
+            background-color: #ffffff33;
+            margin: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-title {
+                font-size: 2rem;
+            }
+            
+            .contact-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .contact-item i {
+                margin-right: 0;
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .contact-title {
+                font-size: 2.5rem;
+            }
+            
+            .contact-subtitle {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="profile-img"></div>
+            <h1 class="title">Hello, I am David!</h1>
+            <p class="subtitle">Recent uni grad. Passionate about the pharmaceutical industry. 
+                Possess hands-on experience in a sterile lab environment. 
+                I thrive in dynamic settings and quickly adapt to new challenges.
+                Eager to polish and acquire more skills in a collaborative team.</p>
+            
+            <a href="#contact" class="hire-button">Hire me</a>
+        </header>
+
+       
+
+        <section class="section">
+            <h2 class="section-title">Background</h2>
+            <div class="grid">
+                <div class="grid-item">
+                    <div class="icon-placeholder">
+                    <svg class="icon" viewBox="0 0 24 24">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-university"><circle cx="12" cy="10" r="1"/><path d="M22 20V8h-4l-6-4-6 4H2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2"/><path d="M6 17v.01"/><path d="M6 13v.01"/><path d="M18 17v.01"/><path d="M18 13v.01"/><path d="M14 22v-5a2 2 0 0 0-2-2a2 2 0 0 0-2 2v5"/></svg>
+                 </svg>
+                </div>
+                    <h3 class="item-title">University of Berne</h3>
+                    <p class="item-subtitle">Magna Cum Laude</p>
+                    <p>Bachelor of Pharmaceutical Sciences, 2019 - 2022</p>
+                </div>
+                
+                <div class="grid-item">
+                    <div class="icon-placeholder">
+                        <svg class="icon" viewBox="0 0 24 24">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-graduation-cap"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>
+                 </svg>
+                    </div>
+                    <h3 class="item-title">University of Basel</h3>
+                    <p class="item-subtitle">Master degree & Federal diploma</p>
+                    <p>Master of Science in Pharmacy, 2022 - 2024</p>
+                </div>
+                
+                <div class="grid-item">
+                     <div class="icon-placeholder">
+                    <svg class="icon" viewBox="0 0 24 24">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scroll-text"><path d="M15 12h-5"/><path d="M15 8h-5"/><path d="M19 17V5a2 2 0 0 0-2-2H4"/><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"/></svg>
+                 </svg>
+                 </div>
+                    <h3 class="item-title">Master Thesis</h3>
+                    <p class="item-subtitle">Completed a master’s thesis on lipid nanoparticles, focusing on their formulation and efficacy as a drug delivery system</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Skills</h2>
+            <div class="grid">
+                <div class="grid-item">
+                     <div class="icon-placeholder">
+                    <svg class="icon" viewBox="0 0 24 24">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-microscope"><path d="M6 18h8"/><path d="M3 22h18"/><path d="M14 22a7 7 0 1 0 0-14h-1"/><path d="M9 14h2"/><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"/><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"/></svg>
+                 </svg>
+                </div> 
+                    <h3 class="item-title">Cell culture knowledge</h3>
+             
+            </div>
+                
+            <div class="grid-item">
+                     <div class="icon-placeholder">
+                    <svg class="icon" viewBox="0 0 24 24">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-biohazard"><circle cx="12" cy="11.9" r="2"/><path d="M6.7 3.4c-.9 2.5 0 5.2 2.2 6.7C6.5 9 3.7 9.6 2 11.6"/><path d="m8.9 10.1 1.4.8"/><path d="M17.3 3.4c.9 2.5 0 5.2-2.2 6.7 2.4-1.2 5.2-.6 6.9 1.5"/><path d="m15.1 10.1-1.4.8"/><path d="M16.7 20.8c-2.6-.4-4.6-2.6-4.7-5.3-.2 2.6-2.1 4.8-4.7 5.2"/><path d="M12 13.9v1.6"/><path d="M13.5 5.4c-1-.2-2-.2-3 0"/><path d="M17 16.4c.7-.7 1.2-1.6 1.5-2.5"/><path d="M5.5 13.9c.3.9.8 1.8 1.5 2.5"/></svg>
+                 </svg>
+                 </div>
+               
+                <h3 class="item-title">Sterile lab working (BSL1)</h3>
+            </div>
+                
+                   <div class="grid-item">
+                     <div class="icon-placeholder">
+                    <svg class="icon" viewBox="0 0 24 24">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-biceps-flexed"><path d="M12.409 13.017A5 5 0 0 1 22 15c0 3.866-4 7-9 7-4.077 0-8.153-.82-10.371-2.462-.426-.316-.631-.832-.62-1.362C2.118 12.723 2.627 2 10 2a3 3 0 0 1 3 3 2 2 0 0 1-2 2c-1.105 0-1.64-.444-2-1"/><path d="M15 14a5 5 0 0 0-7.584 2"/><path d="M9.964 6.825C8.019 7.977 9.5 13 8 15"/></svg>
+                 </svg>
+                </div> 
+                    <h3 class="item-title">Teamplayer</h3>
+                </div>
+            </div>
+            
+            <div class="grid" style="margin-top: 2rem;">
+                <div class="grid-item">
+                    <div class="icon-placeholder">
+                        <svg class="icon" viewBox="0 0 24 24">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+                 </svg>
+                    </div>
+                    <h3 class="item-title">High stress resistance</h3>
+                </div>
+                
+                <div class="grid-item">
+                    <div class="icon-placeholder">
+                        <svg class="icon" viewBox="0 0 24 24">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-check"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/><path d="m9 9.5 2 2 4-4"/></svg>
+                 </svg>
+                 </div>
+                    <h3 class="item-title">Quick learner</h3>
+                </div>
+                
+                <div class="grid-item">
+                    <div class="icon-placeholder">
+                        <svg class="icon" viewBox="0 0 24 24">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circuit-board"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M11 9h4a2 2 0 0 0 2-2V3"/><circle cx="9" cy="9" r="2"/><path d="M7 21v-4a2 2 0 0 1 2-2h4"/><circle cx="15" cy="15" r="2"/></svg>
+                 </svg>
+                 </div>
+                    <h3 class="item-title">Tech affinity</h3>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="contact-title">Contact me </h2>
+            <div class="divider"></div>
+
+            <div class="contact-item">
+      <svg class="contact-icon" viewBox="0 0 24 24">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+      </svg>
+      <div>
+        <div class="linkedin-link" onclick="openLinkedInProfile();">
+    LinkedIn
+     </div>
+      </div>
+    </div>
+
+ <div class="contact-item">
+      <svg class="contact-icon" viewBox="0 0 24 24">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      </svg>
+      <div>
+        <div class="contact-name">Mail</div>
+        <div class="email-address" onclick="copyEmailAddress();">
+    davidwang3427@gmail.com
+  </div>
+      </div>
+    </div>
+
+    <div class="contact-item">
+      <svg class="contact-icon" viewBox="0 0 24 24">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </svg>
+      <div>
+        <div class="contact-name">Phone Number</div>
+        <div class="phone-number" onclick="copyPhoneNumber(); dialPhoneNumber();">
+    (+41) 78 811 23 19
+  </div>
+      </div>
+    </div>
+
+        </div>
+    </section>
+
+    <script>
+        lucide.createIcons();
+        function copyPhoneNumber() {
+      // Create a temporary input element to hold the phone number
+      const tempInput = document.createElement('input');
+      tempInput.value = '(+41) 78 811 23 19';
+      document.body.appendChild(tempInput);
+
+      // Select and copy the phone number
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+
+      alert('Phone number copied to clipboard!');
+    }
+
+    function dialPhoneNumber() {
+      // Check if on a mobile device
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        // Open the phone dialer with the number
+        window.location.href = 'tel:(+41) 78 811 23 19';
+      }
+    }
+
+
+    function copyEmailAddress() {
+      // Create a temporary input element to hold the email address
+      const tempInput = document.createElement('input');
+      tempInput.value = 'davidwang3427@gmail.com';
+      document.body.appendChild(tempInput);
+
+      // Select and copy the email address
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+
+      alert('Email address copied to clipboard!');
+    }
+
+function openLinkedInProfile() {
+      // Replace 'your-linkedin-profile-url' with your actual LinkedIn profile URL
+      window.open('https://www.linkedin.com/in/david-wang-a327841ab', '_blank');
+    }
+
+    </script>
+</body>
+</html>
